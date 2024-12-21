@@ -1,0 +1,39 @@
+module.exports = (mongoose)=>{
+    const userSchema = mongoose.Schema({
+        firstName:{
+            type:String,
+        },
+        lastName:{
+            type:String,
+        },
+        email:{
+            type:String,
+            required:true,
+            trim:true
+        },
+        phoneNumber:{
+            type:String,
+            trim:true
+        },
+        profileImage:{
+            type:String,
+            required:false,
+            trim:true
+        },
+        password:{
+            type:String,
+            required:true,
+            trim:true
+        },
+        refreshToken:{
+            type:String,
+            required:false,
+            trim:true
+        },
+        createdAt:{
+            type:Date,
+            default:Date.now
+        }
+    });
+    return mongoose.model('user',userSchema);
+}
